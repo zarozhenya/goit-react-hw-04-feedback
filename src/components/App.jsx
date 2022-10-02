@@ -23,7 +23,7 @@ export class App extends Component {
     const total = this.countTotalFeedback();
     return total === 0
       ? 0
-      : Number((positiveFeedback / total) * 100).toFixed(0);
+      : Number(((positiveFeedback / total) * 100).toFixed(0));
   };
   addFeedback = name => {
     this.setState(prevState => ({ [name]: prevState[name] + 1 }));
@@ -36,7 +36,7 @@ export class App extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.state}
+            options={Object.keys(this.state)}
             onLeaveFeedback={this.addFeedback}
           />
         </Section>
